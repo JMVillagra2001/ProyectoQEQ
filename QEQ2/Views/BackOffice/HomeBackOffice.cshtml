@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "HomeBackOffice";
+}
+
+<h1>BackOffice</h1>
+<h2>Usuario</h2>
+    <p>
+        En este menú se encuentran 3 botones con los cuales podrá visualizar, crear y eliminar el contenido del juego.       en cada uno de los botones
+    </p>
+    
+
+<p><a href="@Url.Action("Categoria","BackOffice")" class="btn btn-warning btn-lg">Categoria &raquo;</a></p>
+<p><a href="@Url.Action("Personaje","BackOffice")" class="btn btn-primary btn-lg">Personaje&raquo;</a></p>
+<p><a href="@Url.Action("Preguntas","BackOffice")" class="btn-success btn-lg">Preguntas&raquo;</a></p>
+<p><a href="@Url.Action("Usuarios","BackOffice")" class="btn btn-warning btn-lg">Usuarios &raquo;</a></p>
+

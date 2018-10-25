@@ -1,0 +1,25 @@
+﻿@using QEQ2.Models;
+@model Usuarios
+
+@{
+    ViewBag.Title = "Login";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/login.css" media="screen" />
+<div class="login">
+    <h2>Iniciar Sesion</h2></br>
+
+
+    @using (Html.BeginForm("LoginExitoso", "BackOffice", FormMethod.Post))
+    {
+        <label>Usuario: </label><br />
+        @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)<br />
+        <label>Contraseña: </label><br />
+        @Html.PasswordFor(x => x.Contraseña) @Html.ValidationMessageFor(x => x.Contraseña)<br />
+        <br /><input type="submit" value="Iniciar sesion" />
+        <p>
+            Como administrador/desarrollador, usted podrá acceder a las funciones de ABM (Alta, Baja y Modificación)
+            de los distintos aspectos del juego. En cambio, si usted no lo es, no tendrá acceso a dichas funciones,
+            sino a la experiencia de juego normal.
+        </p>
+    }
+</div>

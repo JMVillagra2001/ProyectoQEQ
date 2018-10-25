@@ -1,0 +1,33 @@
+﻿@using QEQ2.Models;
+@model Usuarios
+
+@{
+    ViewBag.Title = "Form";
+}
+
+
+<div>
+    <h2>Jugador: </h2>
+    <p>
+        Usted se esta registrando a nuestro sistema de QUIEN ES QUIEN, en donde usted tiene que llenar sus datos
+        en esto casilleros. <br />Cuando usted aprete este boton va a esta automaticamente en nuestro sistema y va a ir
+        a la Home principal para que despues usted pueda jugar.
+    </p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="~/Content/login.css" media="screen" />
+<div class="Registrar">
+    <h2>Registrate</h2>
+    @using (Html.BeginForm("Index2", "Home", FormMethod.Post))
+    {
+        <label>Usuario: </label><br />
+        @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)<br />
+        <label>Contraseña:</label><br />
+        @Html.PasswordFor(x => x.Contraseña) @Html.ValidationMessageFor(x => x.Contraseña)<br />
+        <label>Imagen:</label><br />
+        @Html.TextBoxFor(x => x.ImgPerfil) @Html.ValidationMessageFor(x => x.ImgPerfil)<br /> <br />
+
+
+        <input type="submit" value="Registrarse" />
+    }
+</div>
