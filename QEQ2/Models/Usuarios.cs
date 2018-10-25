@@ -57,6 +57,7 @@ namespace QEQ2.Models
                 _nombre = value;
             }
         }
+        [Required(ErrorMessage = "Ingresa una contraseña!!!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Más de 8 letras y menos de 20 ")]
         public string Contraseña
         {
