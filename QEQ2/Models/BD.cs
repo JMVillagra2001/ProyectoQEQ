@@ -42,15 +42,15 @@ namespace QEQ2.Models
             Desconectar(Conexion);
             return a;
         }
-        public static bool Login (string Nombre, string Contraseña)
+        public static bool Login (Usuarios x)
         {
             bool a = false;
             SqlConnection Conexion = Conectar();
             SqlCommand consulta = Conexion.CreateCommand();
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.CommandText = "sp_LogIn";
-            consulta.Parameters.AddWithValue("@pNombre", Nombre);
-            consulta.Parameters.AddWithValue("@pContraseña", Contraseña);
+            consulta.Parameters.AddWithValue("@pNombre", x.Nombre);
+            consulta.Parameters.AddWithValue("@pContraseña", x.Contraseña);
             SqlDataReader lector = consulta.ExecuteReader();
             while(lector.Read())
             {
@@ -61,15 +61,15 @@ namespace QEQ2.Models
             return a;
             
         }
-        public static bool OtroLogin(string Nombre, string Contraseña)
+        public static bool OtroLogin(Usuarios x)
         {
             bool a = false;
             SqlConnection Conexion = Conectar();
             SqlCommand consulta = Conexion.CreateCommand();
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.CommandText = "sp_OtroLogin";
-            consulta.Parameters.AddWithValue("@pNombre", Nombre);
-            consulta.Parameters.AddWithValue("@pContraseña", Contraseña);
+            consulta.Parameters.AddWithValue("@pNombre", x.Nombre);
+            consulta.Parameters.AddWithValue("@pContraseña", x.Contraseña);
             SqlDataReader lector = consulta.ExecuteReader();
             while (lector.Read())
             {

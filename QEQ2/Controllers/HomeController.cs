@@ -44,11 +44,11 @@ namespace QEQ2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Iniciarsesionexitoso(string Nombre, string Contraseña)
+        public ActionResult Iniciarsesionexitoso(Usuarios x)
         {
             if (ModelState.IsValid)
             {
-                bool a = BD.OtroLogin(Nombre, Contraseña);
+                bool a = BD.OtroLogin(x);
                 if (a)
                 {
                     return View("Juego");
@@ -57,7 +57,7 @@ namespace QEQ2.Controllers
             }
             else
             {
-                return View("Iniciarsesion");
+                return View("Juego");
             }
         }
         public ActionResult Juego()

@@ -33,7 +33,7 @@ namespace QEQ2.Controllers
             }
             else
             {
-                return View("Form");
+                return View("Index");
             }
         }
         public ActionResult Login ()
@@ -41,11 +41,11 @@ namespace QEQ2.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LoginExitoso (string Nombre, string Contraseña)
+        public ActionResult LoginExitoso (Usuarios x)
         {
             if (ModelState.IsValid)
             {
-                bool a = BD.Login(Nombre, Contraseña);
+                bool a = BD.Login(x);
                 if (a)
                 {
                     return View("HomeBackOffice");
@@ -55,11 +55,11 @@ namespace QEQ2.Controllers
             }
             else
             {
-                return View("Login");
+                return View("HomeBackOffice");
             }
 
         }
-        public ActionResult HomeBackOffice(string Nombre, string Contraseña)
+        public ActionResult HomeBackOffice(Usuarios x)
         {
             return View();            
         }
