@@ -153,6 +153,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BD.cs" />
+    <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Personajes.cs" />
+    <Compile Include="Models\Preguntas.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -199,6 +202,7 @@
     <Content Include="Views\Home\JuegoHome.cshtml" />
     <Content Include="Views\Home\Iniciarsesion.cshtml" />
     <Content Include="Views\Home\Juego.cshtml" />
+    <Content Include="Views\BackOffice\Categoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,6 +55,7 @@ namespace QEQ2.Controllers
             }
             else
             {
+                Session["Usuario"] = x.Nombre;
                 return View("HomeBackOffice");
             }
 
@@ -62,6 +63,16 @@ namespace QEQ2.Controllers
         public ActionResult HomeBackOffice(Usuarios x)
         {
             return View();            
+        }
+        public ActionResult LogOut ()
+        {
+            Session["Usuarios"] = null;
+            return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Categoria()
+        {
+            ViewBag.Categoria = BD.VerCategoria(Categoria x);
+            return View();
         }
     }
 }

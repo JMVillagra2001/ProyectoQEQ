@@ -78,5 +78,96 @@ namespace QEQ2.Models
             Desconectar(Conexion);
             return a;
         }
+        public void TraerCategoria (Categoria x)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_VerCategoria";
+            consulta.Parameters.AddWithValue("@pidCategoria", x.IdCategoria);
+            SqlDataReader lector = consulta.ExecuteReader();
+            while (lector.Read())
+            {
+                string  Nombre;
+                Nombre = lector["Nombre"].ToString();
+            }
+        }
+        public static bool InsertarCategoria(Categoria C)
+        {
+            bool a = false;
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_CrearCategoria";
+            consulta.Parameters.AddWithValue("@pUsuario", C.Nombre);
+            int regsAfectados = consulta.ExecuteNonQuery();
+            if (regsAfectados == 1)
+            {
+                a = true;
+            }
+            Desconectar(Conexion);
+            return a;
+        }
+        public void TraerUsuario(Categoria x)//crear sp
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_TraerUsuario";
+            SqlDataReader lector = consulta.ExecuteReader();
+            while (lector.Read())
+            {
+                string Nombre;
+                Nombre = lector["Nombre"].ToString();
+            }
+        }
+        public void TraerPreguntas(Preguntas P)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_ListarPreguntas";
+            SqlDataReader lector = consulta.ExecuteReader();
+            while (lector.Read())
+            {
+                string Nombre;
+                Nombre = lector["Nombre"].ToString();
+            }
+        }
+        public static bool InsertarPreguntas(Preguntas P)
+        {
+            bool a = false;
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_CrearPregunta";
+            consulta.Parameters.AddWithValue("@pPregunta", P.Texto);
+            consulta.Parameters.AddWithValue("@pCatPreg", P.IdCategoria);
+            int regsAfectados = consulta.ExecuteNonQuery();
+            if (regsAfectados == 1)
+            {
+                a = true;
+            }
+            Desconectar(Conexion);
+            return a;
+        }
+
+        public static bool InsertarPersonajes(Personajes P)
+        {
+            bool a = false;
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "sp_CrearPersonaje";
+            consulta.Parameters.AddWithValue("@pNombre", P.Nombre);
+            consulta.Parameters.AddWithValue("@pCatPreg", P.IdCategoria);
+            int regsAfectados = consulta.ExecuteNonQuery();
+            if (regsAfectados == 1)
+            {
+                a = true;
+            }
+            Desconectar(Conexion);
+            return a;
+        }
     }      
 }
