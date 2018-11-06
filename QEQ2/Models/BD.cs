@@ -78,19 +78,21 @@ namespace QEQ2.Models
             Desconectar(Conexion);
             return a;
         }
-        public void TraerCategoria (Categoria x)
+        public static Categoria TraerCategoria (int x)
         {
+            Categoria unacategoria = new Categoria();
             SqlConnection Conexion = Conectar();
             SqlCommand consulta = Conexion.CreateCommand();
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.CommandText = "sp_VerCategoria";
-            consulta.Parameters.AddWithValue("@pidCategoria", x.IdCategoria);
+            consulta.Parameters.AddWithValue("@pidCategoria", x);
             SqlDataReader lector = consulta.ExecuteReader();
-            while (lector.Read())
+            if (lector.Read())
             {
                 string  Nombre;
                 Nombre = lector["Nombre"].ToString();
             }
+            return unacategoria;
         }
         public static bool InsertarCategoria(Categoria C)
         {
@@ -160,9 +162,44 @@ namespace QEQ2.Models
             consulta.CommandType = System.Data.CommandType.StoredProcedure;
             consulta.CommandText = "sp_CrearPersonaje";
             consulta.Parameters.AddWithValue("@pNombre", P.Nombre);
-            consulta.Parameters.AddWithValue("@pCatPreg", P.IdCategoria);
+            consulta.Parameters.AddWithValue("@pCatPreg", P.Categoria);
             int regsAfectados = consulta.ExecuteNonQuery();
             if (regsAfectados == 1)
+            {
+                a = true;
+            }
+            Desconectar(Conexion);
+            return a;
+        }
+        public static List<Categoria> TraerCategorias()
+        {
+            List<Categoria> C = new List<Categoria>();
+            Categoria cat;
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "VerCategoria";
+            SqlDataReader lector = consulta.ExecuteReader();
+            while (lector.Read())
+            {
+                cat = new Categoria();
+                cat.IdCategoria = Convert.ToInt32(lector["IdCategoría"]);
+                cat.Nombre = lector["Nombre"].ToString();
+                C.Add(cat);
+            }
+            Desconectar(Conexion);
+            return C;
+        }
+        public static bool EliminarCategorias(Categoria P)
+        {
+            bool a = false;
+            SqlConnection Conexion = Conectar();
+            SqlCommand consulta = Conexion.CreateCommand();
+            consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            consulta.CommandText = "EliminarCategoria";
+            consulta.Parameters.AddWithValue("@pIdCategoria", P.IdCategoria);
+            int lector = consulta.ExecuteNonQuery();
+            if (lector == 1)
             {
                 a = true;
             }

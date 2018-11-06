@@ -18,10 +18,10 @@ namespace QEQ2.Models
 
         }
 
-        public Personajes(string NOMING, int CATING)
+        public Personajes(string Nombre, int Categoria)
         {
-          _Nombre=NOMING;
-          _Categoria= CATING;
+          _Nombre= Nombre;
+          _Categoria= Categoria;
         }
     }
 }

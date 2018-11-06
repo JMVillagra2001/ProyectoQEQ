@@ -203,6 +203,7 @@
     <Content Include="Views\Home\Iniciarsesion.cshtml" />
     <Content Include="Views\Home\Juego.cshtml" />
     <Content Include="Views\BackOffice\Categoria.cshtml" />
+    <Content Include="Views\BackOffice\AccionCategoria.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,14 @@
+﻿@using QEQ2.Models
+@model Categoria
+
+@{
+    ViewBag.Title = "AccionCategoria";
+}
+
+<h2>AccionCategoria</h2>
+@using (Html.BeginForm("GrabarCategoria", "BackOffice"))
+{
+    <input type="hidden" name="Accion" value='@ViewBag.Accion' />
+    <h3>Nombre:</h3>@Html.TextBoxFor(x => x.Nombre, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.Nombre)<br />
+    <input type="submit" value='@ViewBag.Accion' />
+}
