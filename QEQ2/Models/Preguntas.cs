@@ -11,6 +11,45 @@ namespace QEQ2.Models
         private string _texto;
         private int _idCategoria;
 
+        public int IdPregunta
+        {
+            get
+            {
+                return _idPregunta;
+            }
+
+            set
+            {
+                _idPregunta = value;
+            }
+        }
+
+        public string Texto
+        {
+            get
+            {
+                return _texto;
+            }
+
+            set
+            {
+                _texto = value;
+            }
+        }
+
+        public int IdCategoria
+        {
+            get
+            {
+                return _idCategoria;
+            }
+
+            set
+            {
+                _idCategoria = value;
+            }
+        }
+
         public Preguntas()
         {
             _idPregunta = IdPregunta;
@@ -24,8 +63,6 @@ namespace QEQ2.Models
             _idCategoria = idCategoria;
         }
 
-        public int IdPregunta { get => _idPregunta; set => _idPregunta = value; }
-        public string Texto { get => _texto; set => _texto = value; }
-        public int IdCategoria { get => _idCategoria; set => _idCategoria = value; }
+        
     }
 }

@@ -10,5 +10,7 @@
 {
     <input type="hidden" name="Accion" value='@ViewBag.Accion' />
     <h3>Nombre:</h3>@Html.TextBoxFor(x => x.Nombre, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.Nombre)<br />
-    <input type="submit" value='@ViewBag.Accion' />
+    <input type="submit" value="@ViewBag.Accion" />
+    <input type="hidden" name="IdCategoria" value="@ViewBag.ID"/>
+    <input type="hidden" name="Accion "value="@ViewBag.Accion"/>
 }

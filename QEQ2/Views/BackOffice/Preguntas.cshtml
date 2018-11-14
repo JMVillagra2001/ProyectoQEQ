@@ -1,0 +1,22 @@
+﻿@using QEQ2.Models;
+@model Preguntas
+
+@{
+    ViewBag.Title = "Preguntas";
+}
+
+<h2>Preguntas</h2>
+
+
+@foreach (Preguntas x in ViewBag.Preguntas)
+{
+
+    @Html.ActionLink("Insertar", "AccionPreguntas", "BackOffice", new { Accion = "Insertar", IdPreguntas = x.IdPregunta }, null)
+    <tr>
+
+        <td class="Texto"><h3>@x.IdCategoria</h3></td>
+        <td class="Texto"><h4>@x.Texto</h4></td>
+        <td class="Texto">@Html.ActionLink("Modificar", "AccionPreguntas", "BackOffice", new { Accion = "Modificar", IdPreguntas = x.IdPregunta }, null)</td>
+        <td class="Texto">@Html.ActionLink("Eliminar", "AccionPreguntas", "BackOffice", new { Accion = "Eliminar", IdPreguntas = x.IdPregunta }, null)</td>
+    </tr>
+}

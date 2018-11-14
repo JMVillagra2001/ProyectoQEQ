@@ -204,6 +204,8 @@
     <Content Include="Views\Home\Juego.cshtml" />
     <Content Include="Views\BackOffice\Categoria.cshtml" />
     <Content Include="Views\BackOffice\AccionCategoria.cshtml" />
+    <Content Include="Views\BackOffice\Preguntas.cshtml" />
+    <Content Include="Views\BackOffice\AccionPreguntas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

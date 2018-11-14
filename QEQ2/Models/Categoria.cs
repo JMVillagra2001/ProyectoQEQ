@@ -21,7 +21,31 @@ namespace QEQ2.Models
             _Nombre = Nombre;
         }
 
-        public int IdCategoria { get => _idCategoria; set => _idCategoria = value; }
-        public string Nombre { get => _Nombre; set => _Nombre = value; }
+        public int IdCategoria
+        {
+            get
+            {
+                return _idCategoria;
+            }
+
+            set
+            {
+                _idCategoria = value;
+            }
+        }
+
+        public string Nombre
+        {
+            get
+            {
+                return _Nombre;
+            }
+
+            set
+            {
+                _Nombre = value;
+            }
+        }
     }
 }
+    

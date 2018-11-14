@@ -10,8 +10,31 @@ namespace QEQ2.Models
         private string _Nombre;
         private int _Categoria;
 
-        public string Nombre { get => _Nombre; set => _Nombre = value; }
-        public int Categoria { get => _Categoria; set => _Categoria = value; }
+        public string Nombre
+        {
+            get
+            {
+                return _Nombre;
+            }
+
+            set
+            {
+                _Nombre = value;
+            }
+        }
+
+        public int Categoria
+        {
+            get
+            {
+                return _Categoria;
+            }
+
+            set
+            {
+                _Categoria = value;
+            }
+        }
 
         public Personajes()
         {
