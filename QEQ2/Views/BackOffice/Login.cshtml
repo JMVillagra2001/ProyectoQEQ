@@ -8,9 +8,7 @@
 <div class="login">
     <h2>Iniciar Sesion</h2>
 
-
-
-    @using (Html.BeginForm("LoginExitoso", "BackOffice", FormMethod.Post))
+     @using (Html.BeginForm("LoginExitoso", "BackOffice", FormMethod.Post))
     {
         <label>Usuario: </label><br />
         @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)<br />

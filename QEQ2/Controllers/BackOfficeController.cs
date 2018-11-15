@@ -12,11 +12,11 @@ namespace QEQ2.Controllers
         public int ValidarDato()
         {
             int val = 0;
-            if ((Usuarios)Session["Nombre"] == null)
+            if ((Usuarios)Session["Usuario"] == null)
             {
                 val = 1;
             }
-            if ((Usuarios)Session["Nombre"] != null && (bool)Session["Admin"] != true)
+            if ((Usuarios)Session["Usuario"] != null && (bool)Session["Admin"] != true)
             {
                 val = 2;
             }
@@ -56,20 +56,32 @@ namespace QEQ2.Controllers
         [HttpPost]
         public ActionResult LoginExitoso(Usuarios x)
         {
-            if (ModelState.IsValid)
-            {
-                bool a = BD.Login(x);
-                if (a)
-                {
-                    Session["Usuario"] = x.Nombre;
-                    return View("Login");
-                }
+            /* if (ModelState.IsValid)
+             {
+                 bool a = BD.Login(x);
+                 if (a)
+                 {
+                     Session["Usuario"] = x.Nombre;
+                     return View("HomeBackOffice");
+                 }
 
-                return View("Login");
+                 return View("Login");
+             }
+             else
+             {
+                 return View("Login");
+             }
+             */
+
+            bool a = BD.Login(x);
+            if (a)
+            {
+                Session["Usuario"] = x.Nombre;
+                return View("HomeBackOffice");
             }
             else
             {
-                return View("HomeBackOffice");
+                return View("Login");
             }
 
         }
@@ -171,7 +183,7 @@ namespace QEQ2.Controllers
             if (Accion == "Eliminar" || Accion == "Ver" || Accion == "Modificar")
             {
                 Preguntas x = BD.TraerPregunta(IdPreguntas);
-                if (Accion == "Eliminar" || Accion == "Ver")
+                if (Accion == "Ver")
                 {
                    
                     ViewBag.disabled = new { disabled = "disabled" };
