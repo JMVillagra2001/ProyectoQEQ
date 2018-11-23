@@ -1,0 +1,25 @@
+﻿@using QEQ2.Models
+@model Personajes
+
+@{
+    ViewBag.Title = "AccionPersonaje";
+}
+
+<h2>AccionPersonaje</h2>
+@using (Html.BeginForm("GrabarPersonaje", "BackOffice"))
+{
+    <input type="hidden" name="Accion" value='@ViewBag.Accion' />
+    <select name="tCate">
+        @foreach (Categoria x in ViewBag.ListaCategorias)
+        {
+            <option value="@x.IdCategoria">@x.Nombre</option>
+        }
+
+    </select>
+
+    <h3>Nombre:</h3>@Html.TextBoxFor(x => x.Nombre, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.Nombre)<br />
+    <h3>Imagen:</h3>@Html.TextBoxFor(x => x.Imagen, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.Imagen)<br />
+    <input type="submit" value="@ViewBag.Accion" />
+    <input type="hidden" name="IdPersonaje" value="@ViewBag.ID" />
+    <input type="hidden" name="Accion" value="@ViewBag.Accion" />
+}

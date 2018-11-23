@@ -154,8 +154,10 @@
     </Compile>
     <Compile Include="Models\BD.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\ImageHelper.cs" />
     <Compile Include="Models\Personajes.cs" />
     <Compile Include="Models\Preguntas.cs" />
+    <Compile Include="Models\PreguntasXpersonaje.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,6 +208,10 @@
     <Content Include="Views\BackOffice\AccionCategoria.cshtml" />
     <Content Include="Views\BackOffice\Preguntas.cshtml" />
     <Content Include="Views\BackOffice\AccionPreguntas.cshtml" />
+    <Content Include="Views\BackOffice\Personaje.cshtml" />
+    <Content Include="Views\BackOffice\AccionPersonaje.cshtml" />
+    <Content Include="Views\BackOffice\AccionPersonajePreguntas.cshtml" />
+    <Content Include="Views\BackOffice\ListaPreguntasPersonaje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

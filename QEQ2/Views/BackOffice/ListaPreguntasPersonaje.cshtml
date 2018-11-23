@@ -1,0 +1,21 @@
+﻿@using QEQ2.Models
+@model Preguntas
+@{
+    ViewBag.Title = "ListaPreguntasPersonaje";
+}
+
+<h2>ListaPreguntasPersonaje</h2>
+
+@using (Html.BeginForm("GrabarPreguntasPersonaje", "BackOffice"))
+{
+    <input type="hidden" name="Accion" value='@ViewBag.Accion' />
+    <input type="hidden" name="IdPersonaje" value='@ViewBag.IdPersonaje' />
+    foreach (Preguntas x in ViewBag.Preguntas)
+    {
+        <input type="checkbox" name="tCate" value="@x.IdPregunta" checked="checked"> @x.Texto <br />
+    }
+    
+}
+
+
+

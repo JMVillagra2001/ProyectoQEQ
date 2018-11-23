@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.ComponentModel.DataAnnotations;
 namespace QEQ2.Models
 {
     public class Preguntas
@@ -23,7 +23,7 @@ namespace QEQ2.Models
                 _idPregunta = value;
             }
         }
-
+        [Required(ErrorMessage = "Ingresa un Texto !!!")]
         public string Texto
         {
             get
@@ -36,7 +36,6 @@ namespace QEQ2.Models
                 _texto = value;
             }
         }
-
         public int IdCategoria
         {
             get

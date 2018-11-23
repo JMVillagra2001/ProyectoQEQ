@@ -1,7 +1,22 @@
-﻿
+﻿@using QEQ2.Models;
+@model Categoria
 @{
     ViewBag.Title = "Juego";
 }
 
 <h2>Juego</h2>
+
+<h1>Elija una categoria</h1>
+@using (Html.BeginForm("Jugar", "Home"))
+{
+
+    <input type="hidden" name="Accion" value='@ViewBag.Accion' />
+    <select name="tCate">
+        @foreach (Categoria x in ViewBag.Categorias)
+        {
+            <option value="@x.IdCategoria">@x.Nombre</option>
+        }
+    </select>
+    <input type="submit" value="Jugar" />
+}
 

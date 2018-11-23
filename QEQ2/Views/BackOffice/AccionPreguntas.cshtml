@@ -9,7 +9,14 @@
 @using (Html.BeginForm("GrabarPregunta", "BackOffice"))
 {
     <input type="hidden" name="Accion" value='@ViewBag.Accion' />
-    <h3>Categoria:</h3>@Html.TextBoxFor(x => x.IdCategoria, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.IdCategoria)<br />
+    <select name="tCate">
+        @foreach (Categoria x in ViewBag.ListaCategorias)
+        {
+        <option value="@x.IdCategoria">@x.Nombre</option>
+        }
+
+    </select>
+    
     <h3>Texto:</h3>@Html.TextBoxFor(x => x.Texto, (object)ViewBag.disabled) @Html.ValidationMessageFor(x => x.Texto)<br />
     <input type="submit" value="@ViewBag.Accion" />
     <input type="hidden" name="IdPreguntas" value="@ViewBag.ID" />

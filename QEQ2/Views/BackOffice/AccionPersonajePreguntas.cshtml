@@ -1,0 +1,16 @@
+﻿@using QEQ2.Models;
+@model Preguntas
+@{
+ ViewBag.Title = "AccionPersonajePreguntas";
+}
+
+<h2>AccionPersonajePreguntas</h2>
+
+@foreach (Preguntas x in ViewBag.Preguntas)
+{
+    <tr>
+        <td class="Texto"><h4>@x.Texto</h4></td>
+    </tr>
+
+    <input type="submit" value="@ViewBag.Accion" />
+}

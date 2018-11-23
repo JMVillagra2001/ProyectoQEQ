@@ -1,0 +1,23 @@
+﻿@using QEQ2.Models;
+@model Personajes
+
+@{
+    ViewBag.Title = "Personaje";
+}
+
+<h2>Personajes</h2>
+
+
+@foreach (Personajes x in ViewBag.Personaje)
+{
+
+    @Html.ActionLink("Insertar", "AccionPersonaje", "BackOffice", new { Accion = "Insertar", idPersonaje = x.IdPersonaje }, null)
+<tr>
+    <td name="Imagen"><h3>@Html.Image(x.Imagen, "aa", "100")</h3></td>
+    <td class="Texto" name="Categoria"><h3>@x.Categoria</h3></td>
+    <td class="Texto" name="Nombre"><h4>@x.Nombre</h4></td>
+    <td class="Texto">@Html.ActionLink("Modificar", "AccionPersonaje", "BackOffice", new { Accion = "Modificar", idPersonaje = x.IdPersonaje }, null)</td>
+    <td class="Texto">@Html.ActionLink("Eliminar", "AccionPersonaje", "BackOffice", new { Accion = "Eliminar", IdPersonaje = x.IdPersonaje }, null)</td>
+    <td class="Texto">@Html.ActionLink("Preguntas", "AccionPersonaje", "BackOffice", new { Accion = "Preguntas", IdPersonaje = x.IdPersonaje }, null)</td>
+</tr>
+}

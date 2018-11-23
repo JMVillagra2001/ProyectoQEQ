@@ -43,7 +43,7 @@ namespace QEQ2.Models
                 _idUsuario = value;
             }
         }
-        [Required(ErrorMessage = "Ingresa un usuario valido!!!")]
+        [Required(ErrorMessage = "Ingresá un nombre válido!!!")]
         [StringLength(20, MinimumLength = 4, ErrorMessage = "Más de 4 letras y menos de 20 ")]
         public string Nombre
         {
