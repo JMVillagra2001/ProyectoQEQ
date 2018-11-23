@@ -70,7 +70,7 @@ namespace QEQ2.Controllers
         {
             if (tCate == -1)
             {
-                ViewBag.Categorias = BD.TraerCategorias();
+                ViewBag.Categorias = BD.TraerCategorias();  
                 ViewBag.Error = "Seleccione una categoría";
                 return View("Index");
             }
@@ -78,7 +78,7 @@ namespace QEQ2.Controllers
             {
                 Personajes MiPersonaje = new Personajes();
                 List<Personajes> MisPersonajes = new List<Personajes>();
-               // MisPersonajes = BD.PreguntasxPersonaje(idPersonajes);
+               //// MisPersonajes = BD.PreguntasxPersonaje(idPersonajes);
                 int Num = MisPersonajes.Count();
                 int n = new Random().Next(1, Num);
                 MiPersonaje = MisPersonajes[n - 1];
